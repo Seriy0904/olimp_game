@@ -1,13 +1,18 @@
+pub const ENEMY_SIZE: f32 = 32.0;
+pub const PLAYER_SIZE: f32 = 32.0;
+
 mod player;
+mod enemies;
 mod components;
 
 use bevy::{prelude::*, window::PrimaryWindow};
+use enemies::EnemiesPlugin;
 use player::PlayerPlugin;
-
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugin(PlayerPlugin())
+        .add_plugin(EnemiesPlugin())
         .add_startup_system(setup)
         .run();
 }
