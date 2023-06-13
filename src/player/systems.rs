@@ -1,6 +1,7 @@
 use super::components::*;
+use super::events::*;
+use crate::{ENEMY_SIZE, PLAYER_SIZE};
 use bevy::{prelude::*, window::PrimaryWindow};
-use crate::{PLAYER_SIZE,ENEMY_SIZE};
 
 pub fn startup(
     mut commands: Commands,
@@ -15,6 +16,7 @@ pub fn startup(
             hp: 100,
             mana: 10,
             speed: 5.0,
+            auto_attack_damage: 10
         },
         SpriteBundle {
             texture: asset_server.load("frst_character.png"),
@@ -50,6 +52,7 @@ pub fn player_moving(
     if left {
         direction += Vec3::new(-1.0, 0.0, 0.0);
     }
+    direction = direction.normalize_or_zero();
     if kbd.pressed(KeyCode::LShift) {
         direction *= 1.5;
     }

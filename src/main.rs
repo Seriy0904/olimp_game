@@ -4,6 +4,7 @@ pub const PLAYER_SIZE: f32 = 32.0;
 mod player;
 mod enemies;
 mod components;
+mod events;
 
 use bevy::{prelude::*, window::PrimaryWindow};
 use enemies::EnemiesPlugin;

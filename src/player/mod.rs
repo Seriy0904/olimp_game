@@ -2,6 +2,7 @@ mod systems;
 use bevy::{prelude::*};
 use systems::*;
 use super::components;
+use super::events;
 pub struct PlayerPlugin();
 impl Plugin for PlayerPlugin{
     fn build(&self, app: &mut App) {
