@@ -1,10 +1,10 @@
 use super::components::*;
 use super::events::*;
-use crate::{ENEMY_SIZE, PLAYER_SIZE};
+use crate::{ PLAYER_SIZE};
 use bevy::sprite::collide_aabb::collide;
 use bevy::{prelude::*, window::PrimaryWindow};
 
-pub fn startup(
+pub fn player_startup(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     window_query: Query<&Window, With<PrimaryWindow>>,
